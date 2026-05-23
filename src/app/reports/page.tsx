@@ -34,10 +34,10 @@ export default function ReportsPage() {
           let totalCands = 0;
           let totalScore = 0;
           let topTalentsCount = 0;
-          const jobsStats = jobsData.map((job) => {
+          const jobsStats = jobsData.map((job: any) => {
             const candCount = job.candidates ? job.candidates.length : 0;
             totalCands += candCount;
-            
+
             if (job.candidates) {
               job.candidates.forEach((c: any) => {
                 totalScore += c.score || 0;
@@ -53,7 +53,7 @@ export default function ReportsPage() {
           });
 
           // Sort by applicant count
-          jobsStats.sort((a, b) => b.count - a.count);
+          jobsStats.sort((a: any, b: any) => b.count - a.count);
 
           setStats({
             totalJobs: jobsData.length,
@@ -78,7 +78,7 @@ export default function ReportsPage() {
           <p className="text-slate-500 mt-1 text-sm font-medium">Lihat ringkasan kinerja rekrutmen dan wawasan yang dihasilkan oleh AI.</p>
         </div>
       </div>
-      
+
       <div className="p-8 max-w-7xl mx-auto w-full flex-1">
         {loading ? (
           <div className="flex items-center justify-center h-64">
@@ -144,7 +144,7 @@ export default function ReportsPage() {
                   <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                   Top Lowongan Berdasarkan Pelamar
                 </h3>
-                
+
                 {topJobs.length === 0 ? (
                   <div className="text-center py-10 text-slate-500 text-sm select-none cursor-default">Belum ada data pelamar.</div>
                 ) : (
@@ -159,8 +159,8 @@ export default function ReportsPage() {
                             <div className="font-bold text-indigo-600 text-sm select-none cursor-default">{job.count} Kandidat</div>
                           </div>
                           <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                            <div 
-                              className="bg-indigo-500 h-full rounded-full" 
+                            <div
+                              className="bg-indigo-500 h-full rounded-full"
                               style={{ width: `${percentage}%` }}
                             ></div>
                           </div>
