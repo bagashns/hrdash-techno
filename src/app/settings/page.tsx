@@ -89,15 +89,15 @@ export default function SettingsPage() {
   );
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-slate-50/50 overflow-y-auto">
-      <div className="bg-white px-8 py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Pengaturan Profil</h1>
-          <p className="text-slate-500 mt-1 text-sm font-medium">Konfigurasikan profil perusahaan dan preferensi keamanan Anda.</p>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Pengaturan Profil</h1>
+          <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Konfigurasikan profil perusahaan dan preferensi keamanan Anda.</p>
         </div>
       </div>
       
-      <div className="p-8 max-w-4xl w-full mx-auto">
+      <div className="p-4 sm:p-8 max-w-4xl w-full mx-auto flex-1 overflow-y-auto">
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
           <div className="p-8 border-b border-slate-100">
             <h2 className="text-lg font-black text-slate-900 mb-6 flex items-center gap-2 select-none cursor-default">

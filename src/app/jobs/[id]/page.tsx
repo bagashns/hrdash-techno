@@ -186,25 +186,25 @@ export default function JobDetailPage() {
   );
 
   return (
-    <div className="flex-1 flex flex-col h-screen overflow-hidden bg-slate-50/50">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen overflow-hidden bg-slate-50/50">
       {/* Topbar */}
-      <div className="bg-white px-8 py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm select-none cursor-default">
-        <div className="flex items-center gap-5">
-          <Link href="/dashboard" className="w-10 h-10 flex items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+      <div className="bg-white px-4 py-4 sm:px-8 sm:py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm select-none cursor-default">
+        <div className="flex items-center gap-3 sm:gap-5 min-w-0">
+          <Link href="/dashboard" className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all shrink-0">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           </Link>
-          <div>
-            <div className="flex items-center gap-3 mb-1">
-              <h1 className="text-2xl font-black text-slate-900 tracking-tight">{job.title}</h1>
-              <span className="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-md">AKTIF</span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 sm:gap-3 mb-0.5 sm:mb-1 flex-wrap">
+              <h1 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight truncate">{job.title}</h1>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs font-bold rounded-md uppercase tracking-wider">AKTIF</span>
             </div>
-            <p className="text-sm text-slate-500 line-clamp-1 max-w-2xl">{job.description}</p>
+            <p className="text-xs sm:text-sm text-slate-500 line-clamp-1 max-w-2xl">{job.description}</p>
           </div>
         </div>
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="p-8 max-w-7xl mx-auto w-full grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
           
           {/* KOLOM KIRI: Upload */}
           <div className="xl:col-span-1 space-y-6">
@@ -322,16 +322,16 @@ export default function JobDetailPage() {
                   {candidates.map((candidate, idx) => {
                     const isTopMatch = idx === 0 && candidate.score >= 80;
                     return (
-                      <div key={candidate.id} className="p-8 hover:bg-slate-50/50 transition-colors relative group select-none cursor-default">
+                      <div key={candidate.id} className="p-5 sm:p-8 hover:bg-slate-50/50 transition-colors relative group select-none cursor-default">
                         {isTopMatch && (
                           <div className="absolute top-0 right-0 -mt-1 -mr-1">
-                            <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl shadow-sm uppercase tracking-wider">Top Match</span>
+                            <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-bl-lg rounded-tr-xl shadow-sm uppercase tracking-wider">Top Match</span>
                           </div>
                         )}
                         
-                        <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-6">
-                          <div className="flex gap-5 items-start">
-                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl shadow-sm ${
+                        <div className="flex flex-col md:flex-row justify-between items-start gap-4 sm:gap-6 mb-6">
+                          <div className="flex gap-4 sm:gap-5 items-start w-full md:w-auto">
+                            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center font-black text-lg sm:text-xl shadow-sm shrink-0 ${
                               idx === 0 ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white' : 
                               idx === 1 ? 'bg-slate-800 text-white' : 
                               idx === 2 ? 'bg-slate-600 text-white' : 
@@ -339,19 +339,20 @@ export default function JobDetailPage() {
                             }`}>
                               {idx + 1}
                             </div>
-                            <div>
-                              <h4 className="font-bold text-slate-900 text-xl tracking-tight">{candidate.nama || 'Nama Tidak Terbaca'}</h4>
-                              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-sm font-medium text-slate-500">
-                                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> {candidate.email || '-'}</span>
-                                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> {candidate.telepon || '-'}</span>
+                            <div className="min-w-0 flex-1">
+                              <h4 className="font-bold text-slate-900 text-lg sm:text-xl tracking-tight truncate">{candidate.nama || 'Nama Tidak Terbaca'}</h4>
+                              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                                <span className="flex items-center gap-1.5 truncate"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> {candidate.email || '-'}</span>
+                                <span className="flex items-center gap-1.5"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> {candidate.telepon || '-'}</span>
                               </div>
                             </div>
                           </div>
-                          <div className="text-right shrink-0 bg-slate-50 border border-slate-100 rounded-xl px-5 py-3">
-                            <div className={`text-3xl font-black ${candidate.score >= 80 ? 'text-emerald-600' : candidate.score >= 60 ? 'text-amber-500' : 'text-slate-700'}`}>
-                              {candidate.score}<span className="text-lg text-slate-400 font-medium">/100</span>
+                          <div className="w-full md:w-auto flex items-center md:flex-col justify-between md:justify-center md:text-right shrink-0 bg-slate-50 border border-slate-100 rounded-xl px-4 py-2 sm:px-5 sm:py-3 gap-2 md:gap-0">
+                            <div className="text-xs font-bold text-slate-400 uppercase tracking-widest md:hidden">AI Match Score</div>
+                            <div className={`text-2xl sm:text-3xl font-black ${candidate.score >= 80 ? 'text-emerald-600' : candidate.score >= 60 ? 'text-amber-500' : 'text-slate-700'}`}>
+                              {candidate.score}<span className="text-sm sm:text-lg text-slate-400 font-medium">/100</span>
                             </div>
-                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">AI Match Score</div>
+                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 hidden md:block">AI Match Score</div>
                           </div>
                         </div>
 

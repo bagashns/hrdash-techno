@@ -15,7 +15,7 @@ export default function TalentPage() {
     const fetchCandidates = async () => {
       const companyId = localStorage.getItem('hrdash_company_id');
       if (!companyId) {
-        router.push('/pricing');
+        router.push('/');
         return;
       }
 
@@ -46,15 +46,15 @@ export default function TalentPage() {
   });
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-slate-50/50 overflow-y-auto">
-      <div className="bg-white px-8 py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Database Talent</h1>
-          <p className="text-slate-500 mt-1 text-sm font-medium">Jelajahi seluruh profil kandidat yang pernah melamar di perusahaan Anda.</p>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Database Talent</h1>
+          <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Jelajahi seluruh profil kandidat yang pernah melamar di perusahaan Anda.</p>
         </div>
         
         {/* Search Bar */}
-        <div className="relative w-72">
+        <div className="relative w-full sm:w-72">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <svg className="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           </div>
@@ -68,7 +68,7 @@ export default function TalentPage() {
         </div>
       </div>
 
-      <div className="p-8 max-w-7xl mx-auto w-full flex-1 flex flex-col">
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full flex-1 flex flex-col overflow-y-auto">
         {loading ? (
           <div className="flex-1 flex items-center justify-center">
             <div className="animate-pulse flex flex-col items-center gap-4">

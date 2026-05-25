@@ -58,19 +58,19 @@ export default function CreateJobPage() {
   if (!companyId) return null;
 
   return (
-    <div className="flex-1 flex flex-col h-screen bg-slate-50/50 overflow-hidden">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
       {/* Topbar */}
-      <div className="bg-white px-8 py-5 border-b border-slate-200 flex items-center sticky top-0 z-10 gap-5 shadow-sm select-none cursor-default">
-        <Link href="/dashboard" className="w-10 h-10 flex items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all">
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+      <div className="bg-white px-6 py-4 sm:px-8 sm:py-5 border-b border-slate-200 flex items-center sticky top-0 z-10 gap-4 sm:gap-5 shadow-sm select-none cursor-default">
+        <Link href="/dashboard" className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all shrink-0">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
         </Link>
         <div>
-          <h1 className="text-xl font-black text-slate-900 tracking-tight">Buka Lowongan Baru</h1>
-          <p className="text-slate-500 text-xs font-medium">Buat kriteria posisi agar AI dapat menyeleksi kandidat secara presisi.</p>
+          <h1 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">Buka Lowongan Baru</h1>
+          <p className="text-slate-500 text-[10px] sm:text-xs font-medium">Buat kriteria posisi agar AI dapat menyeleksi kandidat secara presisi.</p>
         </div>
       </div>
 
-      <div className="p-8 max-w-3xl mx-auto w-full">
+      <div className="p-4 sm:p-8 max-w-3xl mx-auto w-full flex-1 overflow-y-auto">
         <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm select-none">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>

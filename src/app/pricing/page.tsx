@@ -131,58 +131,60 @@ export default function PricingPage() {
     <div className="flex-1 flex flex-col bg-slate-50">
       {/* Top Navbar for Guests (since Sidebar is hidden) */}
       {!isLoggedIn && (
-        <nav className="bg-white/80 backdrop-blur-md px-8 py-4 border-b border-slate-200 flex justify-between items-center sticky top-0 z-50">
+        <nav className="bg-white/80 backdrop-blur-md px-6 py-4 border-b border-slate-200 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-3 select-none cursor-default">
             <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-black text-xs shadow-sm">HR</div>
-            <div className="font-black text-lg tracking-tight text-slate-900">HR<span className="text-indigo-600">Dash</span></div>
+            <div className="font-black text-base tracking-tight text-slate-900">HR<span className="text-indigo-600">Dash</span></div>
           </div>
           <button 
             onClick={openLoginModal}
-            className="px-6 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-slate-800 transition-all shadow-sm cursor-pointer select-none"
+            className="px-4 py-2 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-bold hover:bg-slate-800 transition-all shadow-sm cursor-pointer select-none"
           >
-            Masuk ke Akun
+            Masuk
           </button>
         </nav>
       )}
 
-      {/* Header Section - Only show for guests as a Landing Page */}
-      {!isLoggedIn ? (
-        <div className={`pt-20 pb-16 px-8 bg-white border-b border-slate-200 relative overflow-hidden`}>
-          {/* Background Accents */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-indigo-50/50 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-gradient-to-tr from-purple-50/30 to-transparent"></div>
-          
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] font-black uppercase tracking-widest mb-6 animate-in slide-in-from-bottom-2 duration-500 select-none cursor-default">
-              Platform Rekrutmen AI Terbaik
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.1] animate-in slide-in-from-bottom-4 duration-700 select-none cursor-default">
-              Seleksi Ratusan CV <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Hanya dalam Detik.</span>
-            </h1>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium mb-10 animate-in slide-in-from-bottom-6 duration-1000 select-none cursor-default">
-              Gunakan kecerdasan buatan untuk menemukan kandidat terbaik tanpa harus membaca tumpukan resume secara manual. Pilih paket yang sesuai untuk mulai sekarang.
-            </p>
+      {/* Main Container - Scrollable if logged in */}
+      <div className={`flex-1 flex flex-col ${isLoggedIn ? 'h-[calc(100vh-64px)] md:h-screen overflow-y-auto' : ''}`}>
+        {/* Header Section - Only show for guests as a Landing Page */}
+        {!isLoggedIn ? (
+          <div className="pt-12 pb-10 px-6 sm:pt-20 sm:pb-16 sm:px-8 bg-white border-b border-slate-200 relative overflow-hidden">
+            {/* Background Accents */}
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-indigo-50/50 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-gradient-to-tr from-purple-50/30 to-transparent"></div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in slide-in-from-bottom-8 duration-1000">
-              <button 
-                onClick={openLoginModal}
-                className="px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2 group select-none cursor-pointer"
-              >
-                Daftar Perusahaan Sekarang
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </button>
+            <div className="max-w-4xl mx-auto text-center relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] font-black uppercase tracking-widest mb-6 animate-in slide-in-from-bottom-2 duration-500 select-none cursor-default">
+                Platform Rekrutmen AI Terbaik
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.1] animate-in slide-in-from-bottom-4 duration-700 select-none cursor-default">
+                Seleksi Ratusan CV <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Hanya dalam Detik.</span>
+              </h1>
+              <p className="text-sm sm:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium mb-10 animate-in slide-in-from-bottom-6 duration-1000 select-none cursor-default">
+                Gunakan kecerdasan buatan untuk menemukan kandidat terbaik tanpa harus membaca tumpukan resume secara manual. Pilih paket yang sesuai untuk mulai sekarang.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in slide-in-from-bottom-8 duration-1000">
+                <button 
+                  onClick={openLoginModal}
+                  className="px-6 py-3 sm:px-8 sm:py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2 group select-none cursor-pointer text-sm sm:text-base"
+                >
+                  Daftar Perusahaan Sekarang
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="pt-12 pb-8 px-8 bg-white border-b border-slate-200 select-none cursor-default">
-          <div className="max-w-4xl">
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">Paket & Harga</h1>
-            <p className="text-slate-500 mt-1 text-sm font-medium">Upgrade paket Anda untuk mendapatkan akses fitur AI yang lebih bertenaga.</p>
+        ) : (
+          <div className="pt-8 pb-6 px-6 sm:pt-12 sm:pb-8 sm:px-8 bg-white border-b border-slate-200 select-none cursor-default">
+            <div className="max-w-4xl">
+              <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Paket & Harga</h1>
+              <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Upgrade paket Anda untuk mendapatkan akses fitur AI yang lebih bertenaga.</p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       {/* Tiers Grid */}
       <div className="max-w-6xl mx-auto px-8 py-12 w-full">
@@ -240,8 +242,8 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
-
       </div>
     </div>
-  );
+  </div>
+);
 }

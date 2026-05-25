@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head />
-      <body className={`${inter.className} bg-slate-50 text-slate-800 antialiased h-screen overflow-hidden flex`}>
+      <body className={`${inter.className} bg-slate-50 text-slate-800 antialiased h-screen overflow-hidden flex flex-col md:flex-row`}>
         <Providers>
           {/* Dynamic Sidebar Component */}
           <Sidebar />

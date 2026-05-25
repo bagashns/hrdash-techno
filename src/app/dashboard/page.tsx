@@ -19,7 +19,7 @@ export default function DashboardPage() {
     const id = localStorage.getItem('hrdash_company_id');
     
     if (!name || !id) {
-      router.push('/pricing');
+      router.push('/');
       return;
     }
     
@@ -56,27 +56,27 @@ export default function DashboardPage() {
   if (!companyName) return null;
 
   return (
-    <div className="flex-1 flex flex-col h-screen bg-slate-50/50 overflow-hidden">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
       {/* Topbar */}
-      <div className="bg-white px-8 py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Manajemen Lowongan</h1>
-          <p className="text-slate-500 mt-1 text-sm font-medium">Kelola posisi pekerjaan yang sedang aktif dan temukan kandidat terbaik.</p>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Manajemen Lowongan</h1>
+          <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Kelola posisi pekerjaan yang sedang aktif dan temukan kandidat terbaik.</p>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center justify-between sm:justify-end gap-5 w-full sm:w-auto">
           {companyId ? (
-            <button onClick={handleLogout} className="text-sm font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-wider select-none cursor-pointer">
+            <button onClick={handleLogout} className="text-xs sm:text-sm font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-wider select-none cursor-pointer">
               Logout
             </button>
           ) : (
             <button 
               onClick={openLoginModal} 
-              className="text-sm font-bold text-indigo-600 hover:text-indigo-500 transition-colors uppercase tracking-wider cursor-pointer select-none outline-none"
+              className="text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-500 transition-colors uppercase tracking-wider cursor-pointer select-none outline-none"
             >
               Masuk
             </button>
           )}
-          <Link href="/jobs/create" className="px-5 py-2.5 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] flex items-center gap-2 cursor-pointer select-none">
+          <Link href="/jobs/create" className="px-4 py-2 sm:px-5 sm:py-2.5 bg-slate-900 text-white rounded-xl text-xs sm:text-sm font-semibold hover:bg-slate-800 transition-all shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] flex items-center gap-2 cursor-pointer select-none">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" /></svg>
             Buka Lowongan
           </Link>
@@ -84,7 +84,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="p-8 max-w-7xl mx-auto w-full">
+        <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((n) => (

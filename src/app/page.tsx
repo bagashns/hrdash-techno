@@ -1,20 +1,37 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PricingPage from './pricing/page';
 
-export default function UploadPage() {
+export default function RootPage() {
   const router = useRouter();
-  const [isDragging, setIsDragging] = useState(false);
-  const [files, setFiles] = useState<File[]>([]);
-  const [uploadStatuses, setUploadStatuses] = useState<Record<string, { status: string, progress: number, error?: string }>>({});
-  const [jobDescription, setJobDescription] = useState<string>('');
-  const [companyName, setCompanyName] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   useEffect(() => {
-    router.replace('/dashboard');
+    const id = localStorage.getItem('hrdash_company_id');
+    if (id) {
+      setIsLoggedIn(true);
+      router.replace('/dashboard');
+    } else {
+      setIsLoggedIn(false);
+    }
   }, [router]);
 
-  return <div className="p-12 text-center text-slate-500">Mengarahkan ke dashboard...</div>;
+  if (isLoggedIn === null) {
+    return (
+      <div className="flex-1 flex items-center justify-center bg-slate-50">
+        <div className="animate-pulse flex flex-col items-center gap-4">
+          <div className="w-12 h-12 bg-indigo-200 rounded-full"></div>
+          <div className="text-slate-500 font-medium">Memuat...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoggedIn) {
+    return null; // Will redirect to /dashboard
+  }
+
+  return <PricingPage />;
 }

@@ -19,7 +19,7 @@ export default function ReportsPage() {
     const fetchReports = async () => {
       const companyId = localStorage.getItem('hrdash_company_id');
       if (!companyId) {
-        router.push('/pricing');
+        router.push('/');
         return;
       }
 
@@ -71,15 +71,15 @@ export default function ReportsPage() {
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-slate-50/50 overflow-y-auto">
-      <div className="bg-white px-8 py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
+    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Laporan AI</h1>
-          <p className="text-slate-500 mt-1 text-sm font-medium">Lihat ringkasan kinerja rekrutmen dan wawasan yang dihasilkan oleh AI.</p>
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Laporan AI</h1>
+          <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Lihat ringkasan kinerja rekrutmen dan wawasan yang dihasilkan oleh AI.</p>
         </div>
       </div>
 
-      <div className="p-8 max-w-7xl mx-auto w-full flex-1">
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full flex-1 overflow-y-auto">
         {loading ? (
           <div className="flex items-center justify-center h-64">
             <div className="animate-pulse flex flex-col items-center gap-4">
