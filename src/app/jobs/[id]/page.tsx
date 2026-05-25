@@ -186,7 +186,7 @@ export default function JobDetailPage() {
   );
 
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen overflow-hidden bg-slate-50/50">
+    <div className="flex-1 flex flex-col md:h-screen md:overflow-hidden bg-slate-50/50">
       {/* Topbar */}
       <div className="bg-white px-4 py-4 sm:px-8 sm:py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm select-none cursor-default">
         <div className="flex items-center gap-3 sm:gap-5 min-w-0">
@@ -203,7 +203,7 @@ export default function JobDetailPage() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 md:overflow-y-auto">
         <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
           
           {/* KOLOM KIRI: Upload */}

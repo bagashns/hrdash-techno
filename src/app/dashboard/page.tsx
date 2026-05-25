@@ -56,7 +56,7 @@ export default function DashboardPage() {
   if (!companyName) return null;
 
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+    <div className="flex-1 flex flex-col md:h-screen bg-slate-50/50 md:overflow-hidden">
       {/* Topbar */}
       <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
@@ -83,7 +83,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 md:overflow-y-auto">
         <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

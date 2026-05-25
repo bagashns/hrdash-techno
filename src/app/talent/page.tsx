@@ -46,7 +46,7 @@ export default function TalentPage() {
   });
 
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+    <div className="flex-1 flex flex-col md:h-screen bg-slate-50/50 md:overflow-hidden">
       <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-10 shadow-sm">
         <div className="select-none cursor-default">
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Database Talent</h1>
@@ -68,7 +68,7 @@ export default function TalentPage() {
         </div>
       </div>
 
-      <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full flex-1 flex flex-col overflow-y-auto">
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full flex-1 flex flex-col md:overflow-y-auto">
         {loading ? (
           <div className="flex-1 flex items-center justify-center">
             <div className="animate-pulse flex flex-col items-center gap-4">
