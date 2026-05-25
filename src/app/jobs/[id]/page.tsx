@@ -186,7 +186,7 @@ export default function JobDetailPage() {
   );
 
   return (
-    <div className="flex-1 flex flex-col md:h-screen md:overflow-hidden bg-slate-50/50">
+    <div className="flex-1 flex flex-col min-h-[calc(100vh-64px)] md:h-screen md:overflow-hidden bg-slate-50/50">
       {/* Topbar */}
       <div className="bg-white px-4 py-4 sm:px-8 sm:py-6 border-b border-slate-200 flex justify-between items-center sticky top-0 z-10 shadow-sm select-none cursor-default">
         <div className="flex items-center gap-3 sm:gap-5 min-w-0">
