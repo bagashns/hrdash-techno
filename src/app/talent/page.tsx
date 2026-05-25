@@ -47,7 +47,7 @@ export default function TalentPage() {
 
   return (
     <div className="flex-1 flex flex-col min-h-[calc(100vh-64px)] md:h-screen md:overflow-hidden bg-slate-50">
-      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-10 shadow-sm">
+      <div className="bg-white px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-200 flex flex-col sm:flex-row gap-4 justify-between sm:items-center sticky top-0 z-20 shadow-sm">
         <div className="select-none cursor-default">
           <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Database Talent</h1>
           <p className="text-slate-500 mt-1 text-xs sm:text-sm font-medium">Jelajahi seluruh profil kandidat yang pernah melamar di perusahaan Anda.</p>

@@ -58,9 +58,9 @@ export default function CreateJobPage() {
   if (!companyId) return null;
 
   return (
-    <div className="flex-1 flex flex-col h-[calc(100vh-64px)] md:h-screen bg-slate-50/50 overflow-hidden">
+    <div className="flex-1 flex flex-col min-h-[calc(100vh-64px)] md:h-screen md:overflow-hidden bg-slate-50">
       {/* Topbar */}
-      <div className="bg-white px-6 py-4 sm:px-8 sm:py-5 border-b border-slate-200 flex items-center sticky top-0 z-10 gap-4 sm:gap-5 shadow-sm select-none cursor-default">
+      <div className="bg-white px-6 py-4 sm:px-8 sm:py-5 border-b border-slate-200 flex items-center sticky top-0 z-20 gap-4 sm:gap-5 shadow-sm select-none cursor-default">
         <Link href="/dashboard" className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all shrink-0">
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
         </Link>
